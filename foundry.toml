@@ -1,0 +1,23 @@
+[profile.default]
+libs = ["lib"]
+optimizer = true
+optimizer_runs = 200
+out = "out"
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+  "@uniswap/v3-periphery=lib/v3-periphery",
+  "@uniswap/v3-core=lib/v3-core",
+  "@prb/math/=lib/prb-math/",
+]
+src = "src"
+via_ir = true
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+fs_permissions = [{access = "read", path = "./"}]
+
+[rpc_endpoints]
+# This section lives outside of profiles and defines a table of RPC endpoints, where the key specifies the RPC endpoints's name and the value is the RPC endpoint itself.
+# The value can either be a valid RPC endpoint or a reference to an environment variable (wrapped with in ${}).
+# These RPC endpoints can be used in tests and Solidity scripts 
+mainnet = "${RPC_URL}"
+
+# See more config options https://github.com/gakonst/foundry/tree/master/config
